@@ -21,17 +21,17 @@ include $(LOCAL_PATH)/common.mk
 # Validate all key maps.
 include $(CLEAR_VARS)
 
-validatekeymaps := $(HOST_OUT_EXECUTABLES)/validatekeymaps$(HOST_EXECUTABLE_SUFFIX)
+validatekeymaps_8812 := $(HOST_OUT_EXECUTABLES)/validatekeymaps_8812$(HOST_EXECUTABLE_SUFFIX)
 files := \
 	$(foreach file,$(keylayouts),$(LOCAL_PATH)/$(file)) \
 	$(foreach file,$(keycharmaps),$(LOCAL_PATH)/$(file)) \
 	$(foreach file,$(keyconfigs),$(LOCAL_PATH)/$(file))
 
-LOCAL_MODULE := validate_device_keymaps
+LOCAL_MODULE := validate_device_keymaps_8812
 LOCAL_MODULE_TAGS := optional
-LOCAL_REQUIRED_MODULES := validatekeymaps
+LOCAL_REQUIRED_MODULES := validatekeymaps_8812
 
-validate_device_keymaps: $(files)
-	$(hide) $(validatekeymaps) $(files)
+validate_device_keymaps_8812: $(files)
+	$(hide) $(validatekeymaps_8812) $(files)
 
 include $(BUILD_PHONY_PACKAGE)

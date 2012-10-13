@@ -36,11 +36,15 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/init.emmc.rc:root/init.emmc.rc \
-	$(LOCAL_PATH)/init.qcom.rc:root/init.qcom.rc \
-	$(LOCAL_PATH)/init.target.rc:root/init.target.rc \
-	$(LOCAL_PATH)/init.qcom.usb.rc:root/init.qcom.usb.rc \
-	$(LOCAL_PATH)/ueventd.qcom.rc:root/ueventd.qcom.rc
+	$(LOCAL_PATH)/rcfiles/init.goldfish.rc:root/init.goldfish.rc \
+	$(LOCAL_PATH)/rcfiles/init.huawei.rc:root/init.huawei.rc \
+	$(LOCAL_PATH)/rcfiles/init.msm7627a.rc:root/init.msm7627a.rc \
+	$(LOCAL_PATH)/rcfiles/init.msm7630.rc:root/init.msm7630.rc \
+	$(LOCAL_PATH)/rcfiles/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	$(LOCAL_PATH)/rcfiles/init.rc:root/init.rc \
+	$(LOCAL_PATH)/rcfiles/init.target.rc:root/init.target.rc \
+	$(LOCAL_PATH)/rcfiles/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
+	$(LOCAL_PATH)/rcfiles/ueventd.rc:root/ueventd.rc 
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
