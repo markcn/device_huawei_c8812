@@ -25,7 +25,9 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
+# /* < DTS2012021302632 lixiangyu 00111074 20120213 begin */
+# move all the cpu related parameters in file init.qcom.post_boot.sh 
+# /* DTS2012021302632 lixiangyu 00111074 20120213 end > */
 #
 # For controlling console and shell on console on 8960 - perist.serial.enable 8960
 # On other target use default ro.debuggable property.
@@ -39,16 +41,9 @@ case "$target" in
             "0")
                 echo 0 > /sys/devices/platform/msm_serial_hsl.0/console
                 ;;
-            "1")
+            *)
                 echo 1 > /sys/devices/platform/msm_serial_hsl.0/console
                 start console
-                ;;
-            *)
-                case "$dserial" in
-                     "1")
-                         start console
-                         ;;
-                esac
                 ;;
         esac
         ;;
@@ -131,6 +126,107 @@ for file in /proc/sys/net/ipv6/conf/*
 do
   echo 0 > $file/accept_ra_defrtr
 done
+
+#
+# Update USB serial number if passed from command line
+#
+# /*< DTS2012011801998 chenxi 20120203 begin */
+# /* we get the blutooth addr from cmdline directly, so we do not use this code */
+# serialnum=`getprop ro.serialno`
+# case "$serialnum" in
+#     "") ;; #Do nothing, use default serial number or check for persist one below
+#     * )
+#     echo "$serialnum" > /sys/class/android_usb/android0/iSerial
+# esac
+# /* DTS2012011801998 chenxi 20120203 end >*/
+
+#
+# Allow unique persistent serial numbers for devices connected via usb
+# User needs to set unique usb serial number to persist.usb.serialno
+#
+# /*< DTS2012011801998 chenxi 20120203 begin */
+# /* we get the blutooth addr from cmdline directly, so we do not use this code */
+# serialno=`getprop persist.usb.serialno`
+# case "$serialno" in
+#     "") ;; #Do nothing here
+#     * )
+#     echo "$serialno" > /sys/class/android_usb/android0/iSerial
+# esac
+# /* DTS2012011801998 chenxi 20120203 end >*/
+
+#
+# Allow persistent usb charging disabling
+# User needs to set usb charging disabled in persist.usb.chgdisabled
+#
+target=`getprop ro.board.platform`
+usbchgdisabled=`getprop persist.usb.chgdisabled`
+case "$usbchgdisabled" in
+    "") ;; #Do nothing here
+    * )
+    case $target in
+        "msm8660")
+        echo "$usbchgdisabled" > /sys/module/pmic8058_charger/parameters/disabled
+        echo "$usbchgdisabled" > /sys/module/smb137b/parameters/disabled
+	;;
+        "msm8960")
+        echo "$usbchgdisabled" > /sys/module/pm8921_charger/parameters/disabled
+	;;
+    esac
+esac
+
+# /*< DTS2010102301151 liyuping liliang  20101122 begin */
+# enable hwvefs daemon process.
+/system/bin/hwvefs /data/hwvefs -o allow_other &
+# /* DTS2010102301151 liyuping liliang  20101122 end > */
+#
+# Allow USB enumeration with default PID/VID
+#
+echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
+usb_config=`getprop persist.sys.usb.config`
+case "$usb_config" in
+    "" | "adb") #USB persist config not set, select default configuration
+        case $target in
+            "msm8960")
+                socid=`cat /sys/devices/system/soc/soc0/id`
+                case "$socid" in
+                    "109")
+                         setprop persist.sys.usb.config diag,adb
+                    ;;
+                    *)
+                        case "$baseband" in
+                            "mdm")
+                                 setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
+                            ;;
+                            *)
+                                 setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
+                            ;;
+                        esac
+                    ;;
+                esac
+            ;;
+            "msm7627a")
+                setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_smd,mass_storage,adb
+            ;;
+            * )
+                case "$baseband" in
+                    "svlte2a")
+                         setprop persist.sys.usb.config diag,diag_mdm,serial_sdio,serial_smd,rmnet_smd_sdio,mass_storage,adb
+                    ;;
+                    "csfb")
+                         setprop persist.sys.usb.config diag,diag_mdm,serial_sdio,serial_tty,rmnet_sdio,mass_storage,adb
+                    ;;
+                    *)
+                         setprop persist.sys.usb.config diag,serial_tty,serial_tty,rmnet_smd,mass_storage,adb
+                    ;;
+                esac
+            ;;
+        esac
+    ;;
+    * ) ;; #USB persist config exists, do nothing
+esac
+/* < DTS2011031705399 renxigang 20110317 begin */
+/system/bin/write_NV_114
+/* DTS2011031705399 renxigang 20110317 end > */
 
 #
 # Start gpsone_daemon for SVLTE Type I & II devices
@@ -271,8 +367,6 @@ case "$target" in
         platformvalue=`cat /sys/devices/system/soc/soc0/hw_platform`
         case "$platformvalue" in
              "Fluid")
-                 start profiler_daemon;;
-             "Liquid")
                  start profiler_daemon;;
         esac
 
