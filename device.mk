@@ -45,14 +45,18 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rcfiles/init.target.rc:root/init.target.rc \
 	$(LOCAL_PATH)/rcfiles/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
 	$(LOCAL_PATH)/rcfiles/ueventd.rc:root/ueventd.rc 
-
+	
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 	$(LOCAL_PATH)/hostapd_default.conf:system/etc/hostapd_default.conf \
-	$(LOCAL_PATH)/media_profiles.xml:/system/etc/media_profiles.xml
+	$(LOCAL_PATH)/media_profiles.xml:/system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/rcfiles/AudioFilter.csv:/system/etc/AudioFilter.csv \
+	$(LOCAL_PATH)/rcfiles/AutoVolumeControl.txt:/system/etc/AutoVolumeControl.txt 
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab
+	$(LOCAL_PATH)/rcfiles/vold.fstab:system/etc/vold.fstab \
+	$(LOCAL_PATH)/rcfiles/internal_sd.fstab:system/etc/internal_sd.fstab \
+	$(LOCAL_PATH)/rcfiles/external_sd.fstab:system/etc/external_sd.fstab
 
 # Include initscripts
 $(call inherit-product-if-exists, device/huawei/c8812/initscripts/initscripts.mk)
