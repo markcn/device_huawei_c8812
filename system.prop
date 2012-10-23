@@ -4,7 +4,7 @@
 
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
-ro.telephony.default_network=0
+ro.telephony.default_network=4
 ro.telephony.ril_class=LGEQualcommRIL
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
@@ -27,7 +27,8 @@ lpa.decode=false
 # system prop for opengles version
 #
 ro.opengles.version=131072
-
+ro.secure=0
+ro.serialno=24DBACF556DD
 debug.sf.hw=1
 debug.composition.type=mdp
 dev.pm.dyn_samplingrate=1
@@ -36,7 +37,7 @@ ro.sf.lcd_density=240
 hw_internal_sd=true
 drm.service.enabled=false
 # System
-dalvik.vm.heapsize=48m
+dalvik.vm.heapsize=64m
 dalvik.vm.dexopt-data-only=1
 
 # hold precise GC data, and use SMP
@@ -51,6 +52,8 @@ persist.sys.use_dithering=1
 com.qc.hardware=true
 
 ro.telephony.call_ring.delay=3000
+#ro.telephony.default_network=4
+
 debug.camera.landscape=true
 
 #
@@ -62,8 +65,28 @@ ro.bluetooth.remote.autoconnect=true
 ro.qualcomm.bluetooth.dun=true
 
 #
+# GSM/CDMA Setting
+#
+ro.carrier=CTE
+ro.cdma.home.operator.numeric=46003[persist.radio.adb_log_on]: [0]
+persist.radio.cdma.msgid=2
+persist.radio.net_pref_0=4
+persist.radio.net_pref_1=7
+persist.radio.paging_priority=0
+persist.radio.sma_voice_3gpp=0
+persist.radio.tuneaway=1
+
+
+#
+# WIFI Settings
+#
+wifi.chip.type=1.2
+wifi.interface=eth0
+
+#
 # system prop for internal and external SD and SD card emulation of emmc partition
 #
+
 ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 ro.emmc.sdcard.partition=16
