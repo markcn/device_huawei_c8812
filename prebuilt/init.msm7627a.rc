@@ -1,0 +1,18 @@
+#/*< DTS2012020207408 yanzhijun 20120202 begin */
+#add something only for msm7627a platform
+# /* <DTS2012021001488 yuanjintao 20120210 begin */
+on emmc-fs
+# mount mmc partitions
+    write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p17
+#/* DTS2012021001488 yuanjintao 20120210 end> */
+
+
+
+
+
+
+
+
+
+
+#/* DTS2012020207408 yanzhijun 20120202 end >*/
