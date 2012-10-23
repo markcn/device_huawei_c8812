@@ -103,7 +103,8 @@ PRODUCT_PACKAGES += \
 	setup_fs
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_c8812
 PRODUCT_DEVICE := c8812
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := Full Android on C8812
+PRODUCT_NAME := cm_c8812
+PRODUCT_BRAND := Huawei
+PRODUCT_MODEL := C8812
+PRODUCT_MANUFACTURER := Huawei
