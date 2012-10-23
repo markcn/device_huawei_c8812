@@ -137,8 +137,8 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 #BOARD_TOUCH_RECOVERY := false
 
 # Custom releasetools for old partition table.
-TARGET_PROVIDES_RELEASETOOLS := true
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/huawei/c8812/releasetools/ota_from_target_files
+#TARGET_PROVIDES_RELEASETOOLS := true
+#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/huawei/c8812/releasetools/ota_from_target_files
 
 # ETC
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/c8812/include

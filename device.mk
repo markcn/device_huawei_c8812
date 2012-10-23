@@ -36,27 +36,27 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rcfiles/init.goldfish.rc:root/init.goldfish.rc \
-	$(LOCAL_PATH)/rcfiles/init.huawei.rc:root/init.huawei.rc \
-	$(LOCAL_PATH)/rcfiles/init.msm7627a.rc:root/init.msm7627a.rc \
-	$(LOCAL_PATH)/rcfiles/init.msm7630.rc:root/init.msm7630.rc \
-	$(LOCAL_PATH)/rcfiles/init.qcom.usb.rc:root/init.qcom.usb.rc \
-	$(LOCAL_PATH)/rcfiles/init.rc:root/init.rc \
-	$(LOCAL_PATH)/rcfiles/init.target.rc:root/init.target.rc \
-	$(LOCAL_PATH)/rcfiles/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
-	$(LOCAL_PATH)/rcfiles/ueventd.rc:root/ueventd.rc 
-	
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-	$(LOCAL_PATH)/hostapd_default.conf:system/etc/hostapd_default.conf \
-	$(LOCAL_PATH)/media_profiles.xml:/system/etc/media_profiles.xml \
-	$(LOCAL_PATH)/rcfiles/AudioFilter.csv:/system/etc/AudioFilter.csv \
-	$(LOCAL_PATH)/rcfiles/AutoVolumeControl.txt:/system/etc/AutoVolumeControl.txt 
+	$(LOCAL_PATH)/prebuilt/init.goldfish.rc:root/init.goldfish.rc \
+	$(LOCAL_PATH)/prebuilt/init.huawei.rc:root/init.huawei.rc \
+	$(LOCAL_PATH)/prebuilt/init.msm7627a.rc:root/init.msm7627a.rc \
+	$(LOCAL_PATH)/prebuilt/init.msm7630.rc:root/init.msm7630.rc \
+	$(LOCAL_PATH)/prebuilt/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	$(LOCAL_PATH)/prebuilt/init.rc:root/init.rc \
+	$(LOCAL_PATH)/prebuilt/init.target.rc:root/init.target.rc \
+	$(LOCAL_PATH)/prebuilt/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
+	$(LOCAL_PATH)/prebuilt/ueventd.rc:root/ueventd.rc 
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rcfiles/vold.fstab:system/etc/vold.fstab \
-	$(LOCAL_PATH)/rcfiles/internal_sd.fstab:system/etc/internal_sd.fstab \
-	$(LOCAL_PATH)/rcfiles/external_sd.fstab:system/etc/external_sd.fstab
+	$(LOCAL_PATH)/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	$(LOCAL_PATH)/prebuilt/hostapd_default.conf:system/etc/hostapd_default.conf \
+	$(LOCAL_PATH)/prebuilt/media_profiles.xml:/system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/prebuilt/AudioFilter.csv:/system/etc/AudioFilter.csv \
+	$(LOCAL_PATH)/prebuilt/AutoVolumeControl.txt:/system/etc/AutoVolumeControl.txt 
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/vold.fstab:system/etc/vold.fstab \
+	$(LOCAL_PATH)/prebuilt/internal_sd.fstab:system/etc/internal_sd.fstab \
+	$(LOCAL_PATH)/prebuilt/external_sd.fstab:system/etc/external_sd.fstab
 
 # Include initscripts
 $(call inherit-product-if-exists, device/huawei/c8812/initscripts/initscripts.mk)

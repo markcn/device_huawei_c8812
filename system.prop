@@ -32,13 +32,25 @@ debug.sf.hw=1
 debug.composition.type=mdp
 dev.pm.dyn_samplingrate=1
 ro.sf.lcd_density=240
+
+hw_internal_sd=true
+drm.service.enabled=false
+# System
+dalvik.vm.heapsize=48m
 dalvik.vm.dexopt-data-only=1
-#Should fix the issue for
-#E/dalvikvm( 1680): Could not stat dex cache directory '/cache/dalvik-cache': 
-#   Permission denied
-#
-# system prop for using landscape preview layout in camera
-#
+
+# hold precise GC data, and use SMP
+dalvik.vm.dexopt-flags=m=y,u=n
+
+# Mount the internal SD card, too
+ro.additionalmounts=/mnt/emmc
+ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ro.emmc.sdcard.partition=19
+
+persist.sys.use_dithering=1
+com.qc.hardware=true
+
+ro.telephony.call_ring.delay=3000
 debug.camera.landscape=true
 
 #
@@ -58,29 +70,3 @@ ro.emmc.sdcard.partition=16
 ro.confg.hw_appfsversion=C8812V100R001C92B937_SYSIMG
 ro.confg.hw_appsbootversion=C8812V100R001C92B937_APPSBOOT
 ro.confg.hw_appversion=C8812V100R001C92B937_KERNEL
-
-hw_internal_sd=true
-drm.service.enabled=false
-gsm.current.phone-type=2
-gsm.network.type=EvDo-rev.A:8
-gsm.nitz.time=1350039285029
-gsm.nitz.timereference=33155400
-gsm.operator.alpha=ChinaTel
-gsm.operator.iso-country=cn
-gsm.operator.isroaming=false
-gsm.operator.numeric=460003
-gsm.sim.num.pin2=3
-gsm.sim.num.pin=3
-gsm.sim.num.puk2=10
-gsm.sim.num.puk=10
-gsm.sim.operator.alpha=ChinaTel
-gsm.sim.operator.iso-country=cn
-gsm.sim.operator.numeric=46003
-gsm.sim.state=READY
-gsm.version.baseband=2030
-#gsm.version.ril-impl=Qualcomm RIL 1.0
-
-# 
-#ro.build.display.id=C8812V100R001C92B937
-#ro.build.fingerprint=Huawei/C8812/hwc8812:4.0.3/HuaweiC8812/C92B937:user/ota-rel-keys,release-keys
-
