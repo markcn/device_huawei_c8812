@@ -43,10 +43,6 @@ dalvik.vm.dexopt-data-only=1
 # hold precise GC data, and use SMP
 dalvik.vm.dexopt-flags=m=y,u=n
 
-# Mount the internal SD card, too
-ro.additionalmounts=/mnt/emmc
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
-ro.emmc.sdcard.partition=19
 
 persist.sys.use_dithering=1
 com.qc.hardware=true
@@ -60,15 +56,20 @@ debug.camera.landscape=true
 # system prop for Bluetooth
 #
 ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.dun=true
+ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.sap=true
+ro.bluetooth.remote.autoconnect=true
 ro.bluetooth.request.master=true
 ro.bluetooth.remote.autoconnect=true
-ro.qualcomm.bluetooth.dun=true
+debug.bt.discoverable_time=-1
 
 #
 # GSM/CDMA Setting
 #
 ro.carrier=CTE
-ro.cdma.home.operator.numeric=46003[persist.radio.adb_log_on]: [0]
+ro.cdma.home.operator.numeric=46003
+persist.radio.adb_log_on=0
 persist.radio.cdma.msgid=2
 persist.radio.net_pref_0=4
 persist.radio.net_pref_1=7
@@ -76,12 +77,91 @@ persist.radio.paging_priority=0
 persist.radio.sma_voice_3gpp=0
 persist.radio.tuneaway=1
 
+#
+# system props for the data modules
+#
+persist.data.ds_fmc_app.mode=0
+
+
+#
+# System prop to enable/disable OMH. Enabled by default
+#
+# DTS2011121605975 lihaiwei 20111227 begin
+persist.omh.enabled=0
+# DTS2011121605975 lihaiwei 20111227 end
+
+
+# System property for cabl
+ro.qualcomm.cabl=1
+
+#
+#
+#
+#System property for single instance recording
+#
+ro.fm.mulinst.recording.support=false
+ro.config.keypasstouser=true
+#System property for msm 
+#
+ro.hw_plat=7x27a
+#/* < DTS2011093001538 yangyuan 20110930 begin */
+ro.config.fm_type=libbcmfm_if
+#/* DTS2011093001538 yangyuan 20110930 end > */
+#DTS2010060300084 xiongshiyi 00165767 20100603 end
+
+# Begin:DTS2010071300747 add Qualifier opt added by h00152727 20100713
+ro.config.hw_opta=92
+ro.config.hw_optb=156
+
+#
+# system props for IMS module
+#
+persist.ims.regmanager.mode=0
+#System prop to determine availability of
+#analog fm path
+#
+ro.fm.analogpath.supported=true
+#DTS2010060300084 xiongshiyi 00165767 20100603 begin
+#
+#System property for FM transmitter
+#
+ro.fm.transmitter=false
+
+#DTS2012011705026 zhaofuxin 20120201 begin
+#DTS2012011705026 zhaofuxin 20120201 begin
+# DTS2011052604435 zhaolei 00181889 20110808 begin
+# DTS2011052604435 zhaolei 00181889 20110808 end
+#  DTS2012030107209 chensaitao 20120305 begin
+#  DTS2012030107209 chensaitao 20120305 end
+# /*<DTS2012031001627 gaopeipei 20120310 begin */
+# /* DTS2012031001627 gaopeipei 20120310 end> */
+# DTS2012031501005 hongxing 20120315 begin
+# DTS2012032802807 chensaitao 20120401 begin
+# DTS2012032802807 chensaitao 20120401 end
+# DTS2012031501005 hongxing 20120315 end
+# /*<DTS2012030103673 zhouxiaming KF70267 20120324 begin */
+del.autofill.for.qcom=true
+# /* DTS2012030103673 zhouxiaming KF70267 20120324  end>*/
+# DTS2012080703220 chengjie 20120812 begin 
+ro.config.hw_supl_onscrnof=true
+# DTS2012080703220 chengjie 20120812 end 
+#
+net.dns1=115.168.254.1
+net.dns2=115.168.254.2
+net.rmnet0.dns1=115.168.254.1
+net.rmnet0.dns2=115.168.254.2
+ro.config.hw_tether_dun_enable=0
+ro.config.hw_voicerecord=true	
+ro.config.smsUserDataHead = true
+ro.config.cwenable=1
+ro.config.hw_allow_ums_and_mtp=true
+ro.config.hw_cdma_cdg=false
 
 #
 # WIFI Settings
 #
 wifi.chip.type=1.2
-wifi.interface=eth0
+wifi.interface=wlan0
 
 #
 # system prop for internal and external SD and SD card emulation of emmc partition
@@ -93,3 +173,13 @@ ro.emmc.sdcard.partition=16
 ro.confg.hw_appfsversion=C8812V100R001C92B937_SYSIMG
 ro.confg.hw_appsbootversion=C8812V100R001C92B937_APPSBOOT
 ro.confg.hw_appversion=C8812V100R001C92B937_KERNEL
+
+#
+## China Telcom
+#
+ro.config.hwft_MatchNum=11
+ro.config.DOMAIN_ASCII_ONLY=false
+ro.config.hw_support_ipcall=true
+ro.config.hw_monkey_switch=true
+ro.config.is_agps_disable=0
+ro.config.hw_supl_onscrnof=true

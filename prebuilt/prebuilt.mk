@@ -64,6 +64,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/etc/audio_effects.conf:system/etc/audio_effects.conf \
 	$(LOCAL_PATH)/etc/cplusw.conf:system/etc/cplusw.conf \
 	$(LOCAL_PATH)/etc/ctnet.conf:system/etc/ctnet.conf \
+	$(LOCAL_PATH)/etc/OperatorPolicy.xml:system/etc/OperatorPolicy.xml \
+	$(LOCAL_PATH)/etc/UserPolicy.xml:system/etc/UserPolicy.xml \
 	$(LOCAL_PATH)/etc/ctwap.conf:system/etc/ctwap.conf \
 	$(LOCAL_PATH)/etc/gps.conf:system/etc/gps.conf \
 	$(LOCAL_PATH)/etc/wpa_supplicant.conf:system/etc/wpa_supplicant.conf 
@@ -85,3 +87,4 @@ $(call inherit-product-if-exists,$(LOCAL_PATH)/wifi/wifi.mk)
 ############################################
 
 $(call inherit-product-if-exists,$(LOCAL_PATH)/keyboards/keyboards.mk)
+#$(call inherit-product-if-exists,$(LOCAL_PATH)/FMRadio/Android.mk)

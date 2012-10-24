@@ -21,6 +21,7 @@ lib/libhwrpc.so
 lib/libidl.so
 lib/libloc_adapter.so
 lib/libloc_api-rpc-qc.so
+lib/libmmjpeg.so
 lib/libmmgsdilib.so
 lib/libnetmgr.so
 lib/libnetutils.so
@@ -46,6 +47,9 @@ lib/egl/libq3dtools_adreno200.so
 lib/libgsl.so
 lib/libOpenVG.so
 lib/libsc-a2xx.so
+lib/hw/libbcmfm_if.so
+lib/libfm_hal.so
+lib/libcamera_client.so
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
 wifi/firmware.bin

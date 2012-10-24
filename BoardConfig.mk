@@ -51,6 +51,7 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USE_QCOM_PMEM := true
 BOARD_VENDOR_QCOM_AMSS_VERSION := 6220
+BOARD_HAS_SDCARD_INTERNAL := true
 
 # Graphics
 TARGET_HARDWARE_3D := false
@@ -75,8 +76,8 @@ BOARD_EGL_CFG := device/huawei/c8812/egl.cfg
 BUILD_KERNEL := true
 TARGET_KERNEL_CONFIG := hw_msm7x27a_defconfig
 TARGET_KERNEL_SOURCE := kernel/huawei/c8812
-#KERNEL_EXTERNAL_MODULES:
-#	cp device/huawei/c8812/prebuilt/wlan.ko $(KERNEL_MODULES_OUT)
+KERNEL_EXTERNAL_MODULES:
+	cp device/huawei/c8812/prebuilt/wifi/dhd_4330.ko $(KERNEL_MODULES_OUT)
 TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
 BOARD_KERNEL_CMDLINE := console=tty0 androidboot.hardware=huawei
 BOARD_INSTALLER_CMDLINE := $(BOARD_KERNEL_CMDLINE)
@@ -85,22 +86,24 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 # Wifi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WLAN_DEVICE := bcm4330
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-BOARD_HOSTAPD_DRIVER := WEXT
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_wext
+#BOARD_HOSTAPD_DRIVER := NL80211
+#BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE := bcm4330
+BOARD_LEGACY_NL80211_STA_EVENTS := true
+
 WIFI_DRIVER_MODULE_PATH := "/system/wifi/dhd_4330.ko"
 WIFI_DRIVER_FW_PATH_AP := "/system/wifi/fw_4330_b2.bin"
 WIFI_DRIVER_FW_PATH_STA := "/system/wifi/fw_4330_b2.bin"
 WIFI_DRIVER_FW_PATH_P2P := "/system/wifi/fw_4330_b2.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/wifi/fw_4330_b2.bin nvram_path=/system/wifi/nvram_4330.txt"
-WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_ARG := "iface_name=wlan firmware_path=/system/wifi/fw_4330_b2.bin nvram_path=/system/wifi/nvram_4330.txt"
+WIFI_DRIVER_MODULE_NAME := "dhd_4330"
 
 
 # Sensors
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := false
+BOARD_HAVE_BLUETOOTH_BCM := true
 
 # GPS
 BOARD_USES_QCOM_GPS := true
