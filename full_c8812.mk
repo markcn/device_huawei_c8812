@@ -43,23 +43,23 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.adb.enable=1
 
 # Camera
-PRODUCT_PACKAGES += \
-	Camera
+#PRODUCT_PACKAGES += \
+#	Camera
 
 # Audio
-PRODUCT_PACKAGES += \
-	audio.a2dp.default \
-	audio_policy.msm7x27a \
-	audio.primary.msm7x27a \
-	libaudioutils
+#PRODUCT_PACKAGES += \
+#	audio.a2dp.default \
+#	audio_policy.msm7x27a \
+#	audio.primary.msm7x27a \
+#	libaudioutils
 
 ##
 ##	audio.primary.default \
 ##	audio_policy.default \
 # Camera
-PRODUCT_PACKAGES += \
-	camera.msm7x27a \
-	libcamera
+#PRODUCT_PACKAGES += \
+#	camera.msm7x27a \
+#	libcamera
 
 # Video
 PRODUCT_PACKAGES += \
@@ -86,17 +86,17 @@ PRODUCT_PACKAGES += \
 #	gps.c8812
 
 # Lights
-PRODUCT_PACKAGES += \
-	lights.msm7x27a
+#PRODUCT_PACKAGES += \
+#	lights.msm7x27a
 
 # Sensors (Prebuilt)
 
 # Live Wallpapers
-PRODUCT_PACKAGES += \
-	LiveWallpapers \
-	LiveWallpapersPicker \
-	VisualizationWallpapers \
-	librs_jni
+#PRODUCT_PACKAGES += \
+#	LiveWallpapers \
+#	LiveWallpapersPicker \
+#	VisualizationWallpapers \
+#	librs_jni
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
