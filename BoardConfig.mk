@@ -74,6 +74,7 @@ BOARD_EGL_CFG := device/huawei/c8812/egl.cfg
 
 # Kernel
 BUILD_KERNEL := true
+TARGET_KERNEL_CUSTOM_TOOLCHAIN:=arm-eabi-4.4.3
 TARGET_KERNEL_CONFIG := hw_msm7x27a_defconfig
 TARGET_KERNEL_SOURCE := kernel/huawei/c8812
 KERNEL_EXTERNAL_MODULES:
@@ -97,23 +98,23 @@ WIFI_DRIVER_MODULE_PATH := "/system/wifi/dhd_4330.ko"
 WIFI_DRIVER_FW_PATH_AP := "/system/wifi/fw_4330_b2.bin"
 WIFI_DRIVER_FW_PATH_STA := "/system/wifi/fw_4330_b2.bin"
 WIFI_DRIVER_FW_PATH_P2P := "/system/wifi/fw_4330_b2.bin"
-WIFI_DRIVER_MODULE_ARG := "iface_name=wlan firmware_path=/system/wifi/fw_4330_b2.bin nvram_path=/system/wifi/nvram_4330.txt"
+WIFI_DRIVER_MODULE_ARG := "iface_name=eth0 firmware_path=/system/wifi/fw_4330_b2.bin nvram_path=/system/wifi/nvram_4330.txt"
 WIFI_DRIVER_MODULE_NAME := "dhd_4330"
 
 
 # Sensors
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
+#BOARD_HAVE_BLUETOOTH := true
+#BOARD_HAVE_BLUETOOTH_BCM := true
 
 # GPS
-BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := c8812
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+#BOARD_USES_QCOM_GPS := true
+#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := c8812
+#BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 #BOARD_GPS_LIBRARIES := libloc_api
 
 # FM
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 # File System
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -145,7 +146,9 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 # ETC
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/c8812/include
+#kernel/huawei/c8812/include/
 
+TARGET_NO_HW_VSYNC=true
 TARGET_COMPRESS_MODULE_SYMBOLS := false
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp

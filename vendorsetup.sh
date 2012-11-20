@@ -16,3 +16,4 @@
 
 add_lunch_combo full_c8812-userdebug
 add_lunch_combo cm_c8812-userdebug
+add_lunch_combo cm_c8812-eng-debug
