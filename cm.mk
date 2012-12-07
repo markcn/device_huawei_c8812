@@ -23,7 +23,7 @@ PRODUCT_MANUFACTURER := Huawei
 #Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=c8812 \
-	BUILD_DISPLAY_ID="IMM76I" \
-	BUILD_FINGERPRINT=huawei/c8812:4.0.4/IMM76I/223133:userdebug/test-keys \
-	PRIVATE_BUILD_DESC="huawei-user 4.0.4 IMM76I 223133 test-keys" \
+	BUILD_DISPLAY_ID="JZO54K" \
+	BUILD_FINGERPRINT=huawei/c8812:4.0.4/JZO54K/223133:userdebug/test-keys \
+	PRIVATE_BUILD_DESC="huawei-user 4.0.4 JZO54K 223133 test-keys" \
 	BUILD_NUMBER=223133
