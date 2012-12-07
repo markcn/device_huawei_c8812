@@ -1,3 +1,11 @@
+lib/libsc-a2xx.so
+lib/libgsl.so
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLES_android.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libq3dtools_adreno200.so
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
 wifi/firmware.bin
